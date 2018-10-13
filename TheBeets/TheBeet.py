@@ -76,10 +76,15 @@ def register():
 ########################################################################################################################
 # MAIN PAGE
 ########################################################################################################################
-from TheBeets.URLS.newsreport import _newsreport
+from TheBeets.URLS.newsreport import _newsreport, _newsfetch
 @app.route('/newsreport', methods=['POST', 'GET'])
 def newsreport():
     return _newsreport(request)
+
+@app.route('/newsreport/<link>')
+def newsfetch(link):
+    print("HI")
+    return _newsfetch(request, link)
 
 
 if __name__ == '__main__':
